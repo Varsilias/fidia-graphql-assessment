@@ -4,6 +4,10 @@ import express from "express"
 import mongoose from "mongoose"
 import http from 'http'
 import 'dotenv/config'
+import authRoutes from './routes/auth.route'
+
+const DB_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/fidia'
+const APP_PORT = process.env.PORT || 4000
 
 
 const typeDefs = gql`
@@ -32,6 +36,10 @@ const books = [
     title: 'City of Glass',
     author: 'Paul Auster',
   },
+  {
+    title: 'The Gotham city',
+    author: 'Batman'
+  }
 ];
 
 const resolvers = {
@@ -41,10 +49,12 @@ const resolvers = {
 };
 
 const startServer = async (typeDefs, resolvers) => {
+  
   const app = express()
+  app.use('/api/v1/auth', authRoutes)
 
   try {
-    await mongoose.connect(process.env.DATABASE_URL)
+    await mongoose.connect(DB_URL)
     console.log('mongo connected')
   } catch (error) {
     console.log({ message: error.message })
@@ -59,7 +69,7 @@ const startServer = async (typeDefs, resolvers) => {
 
   await server.start();
   server.applyMiddleware({ app });
-  await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
+  await new Promise(resolve => httpServer.listen({ port: APP_PORT }, resolve));
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
 
