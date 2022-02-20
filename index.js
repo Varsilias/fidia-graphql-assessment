@@ -3,54 +3,24 @@ import { ApolloServerPluginDrainHttpServer } from "apollo-server-core"
 import express from "express"
 import mongoose from "mongoose"
 import http from 'http'
+import bodyParser from 'body-parser'
 import 'dotenv/config'
 import authRoutes from './routes/auth.route'
-
+import typeDefs from "./src/auth/schemas/TypeDefs"
+import resolvers from "./src/auth/schemas/Resolvers"
+import emailService from "./src/auth/services/email.service"
 const DB_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/fidia'
 const APP_PORT = process.env.PORT || 4000
 
 
-const typeDefs = gql`
-  # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
-
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
-    title: String
-    author: String
-  }
-
-  # The "Query" type is special: it lists all of the available queries that
-  # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-  {
-    title: 'The Gotham city',
-    author: 'Batman'
-  }
-];
-
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
 
 const startServer = async (typeDefs, resolvers) => {
   
   const app = express()
+  
+// Body-parser middleware
+  app.use(bodyParser.urlencoded({ extended: false }))
+  app.use(bodyParser.json())  
   app.use('/api/v1/auth', authRoutes)
 
   try {
@@ -69,6 +39,7 @@ const startServer = async (typeDefs, resolvers) => {
 
   await server.start();
   server.applyMiddleware({ app });
+  // emailService.sendMail()
   await new Promise(resolve => httpServer.listen({ port: APP_PORT }, resolve));
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }
