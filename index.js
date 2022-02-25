@@ -6,7 +6,7 @@ import http from 'http'
 import 'dotenv/config'
 import typeDefs from "./src/auth/schemas/TypeDefs"
 import resolvers from "./src/auth/schemas/Resolvers"
-const DB_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/fidia'
+const DB_URL = process.env.MONGO_URI || 'mongodb://localhost:27017/fidia'
 const APP_PORT = process.env.PORT || 4000
 
 
@@ -14,6 +14,10 @@ const APP_PORT = process.env.PORT || 4000
 const startServer = async (typeDefs, resolvers) => {
   
   const app = express()
+
+  app.get('/', async(req, res) => {
+    res.send('working!!!')
+  })
 
   try {
     await mongoose.connect(DB_URL)
