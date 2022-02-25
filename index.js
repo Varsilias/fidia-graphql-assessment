@@ -16,8 +16,9 @@ const startServer = async (typeDefs, resolvers) => {
   const app = express()
 
   app.get('/', async(req, res) => {
-    res.send('working!!!')
+    res.redirect('/graphql')
   })
+  
 
   try {
     await mongoose.connect(DB_URL)
