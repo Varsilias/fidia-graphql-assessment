@@ -16,7 +16,7 @@ const startServer = async (typeDefs, resolvers) => {
   const app = express();
 
   app.get("/", async (req, res) => {
-    res.redirect("/graphql");
+    res.redirect("https://studio.apollographql.com/graph/fidia-graph/explorer?variant=current");
   });
 
   try {
