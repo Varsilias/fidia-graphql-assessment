@@ -1,6 +1,10 @@
 import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
+
+  # Scalars
+  scalar Date
+
   # Types
 
   type User {
@@ -13,8 +17,18 @@ const typeDefs = gql`
     emailVerified: String!
     password: String
     confirmPassword: String
-    createdAt: String
-    updatedAt: String
+    createdAt: Date
+    updatedAt: Date
+  }
+
+  type SuccessResponse {
+    message: String!
+    user: User!
+  }
+
+  type LoginPayload {
+    token: String!
+    user: User!
   }
 
   # Queries
@@ -26,15 +40,30 @@ const typeDefs = gql`
   # Mutations
 
   type Mutation {
-    createUser(
-      firstname: String!
-      lastname: String!
-      email: String!
-      mobileNo: String!
-      country: String!
-      password: String!
-      confirmPassword: String!
-    ): User!
+    signUp(
+      SignupInput: SignupInput!
+    ): SuccessResponse!
+
+    verifyEmail(verificationToken: String!): SuccessResponse!
+
+    resendVerificationEmail(oldToken: String!): SuccessResponse!
+
+    login(LoginInput: LoginInput!): LoginPayload!
+  }
+
+  input SignupInput {
+    firstname: String!
+    lastname: String!
+    email: String!
+    mobileNo: String!
+    country: String!
+    password: String!
+    confirmPassword: String!
+  }
+
+  input LoginInput {
+    email: String!
+    password: String!
   }
 `;
 

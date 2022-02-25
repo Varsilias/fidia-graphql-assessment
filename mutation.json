@@ -1,0 +1,11 @@
+{
+  "signupInput": {
+    "firstname": "Daniel",
+    "lastname": "Oguejiofor",
+    "email": "nielnonso@gmail.com",
+    "mobileNo": "+23489900660",
+    "country": "Norway",
+    "password": "P@ssword123",
+    "confirmPassword": "P@ssword123"
+  }
+}

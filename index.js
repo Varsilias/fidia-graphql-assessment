@@ -8,7 +8,7 @@ import 'dotenv/config'
 import authRoutes from './routes/auth.route'
 import typeDefs from "./src/auth/schemas/TypeDefs"
 import resolvers from "./src/auth/schemas/Resolvers"
-import emailService from "./src/auth/services/email.service"
+import { verifyPassword } from "./src/utils/encrypt"
 const DB_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/fidia'
 const APP_PORT = process.env.PORT || 4000
 
@@ -37,9 +37,9 @@ const startServer = async (typeDefs, resolvers) => {
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 
-  await server.start();
+  await server.start(); 
   server.applyMiddleware({ app });
-  // emailService.sendMail()
+  
   await new Promise(resolve => httpServer.listen({ port: APP_PORT }, resolve));
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 }

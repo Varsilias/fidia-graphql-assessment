@@ -13,3 +13,11 @@ export const SUBJECT = "Welcome, Please Verify Your account"
 export const TEXT = text
 
 export const HTML = html;
+
+export const MONGO_UNIQUE_CONSTRAINT_ERROR_CODE = 11000
+
+export const JWT_INVALID_SIGNATURE_ERROR = "JsonWebTokenError"
+
+export const JWT_EXPIRED_ERROR = "TokenExpiredError"
+
+export const JWT_NOT_BEFORE = "NotBeforeError"
