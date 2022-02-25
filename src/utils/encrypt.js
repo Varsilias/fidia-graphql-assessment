@@ -26,7 +26,7 @@ export const verifyPassword = async (plainTextPassword, hashedPassword) => {
 };
 
 export const generateVerifyEmailToken = (email) => {
-  return jwt.sign({ email }, jwtConfigOptions.secretKey, { expiresIn: 60 });
+  return jwt.sign({ email }, jwtConfigOptions.secretKey, { expiresIn: jwtConfigOptions.expiry });
 };
 
 export const verifyEmailToken = (verificationToken) => {

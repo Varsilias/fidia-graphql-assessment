@@ -65,8 +65,9 @@ const resolvers = {
       }
     },
 
-    login: async (_, { LoginInput }) => {
+    login: async (_, { LoginInput }, context) => {
       try {
+        console.log(context)
         const values = await signInSchemaValidator.validateAsync(LoginInput, { abortEarly: false })
         return authService.login(values)
 

@@ -52,9 +52,9 @@ class AuthService {
   async verifyEmail(verificationToken) {
     try {
       const email = verifyEmailToken(verificationToken);
-      const user = await this.users.getUser({ email }).exec();
+      const user = await this.getUser({ email });
       if (user && user.emailVerified !== true) {
-        const updatedUser = await this.getUser(
+        const updatedUser = await this.users.findOneAndUpdate(
           { email },
           { emailVerified: true },
           { new: true }
@@ -71,7 +71,7 @@ class AuthService {
   async resendVerificationEmail(oldToken) {
     try {
       const email = decodeOldToken(oldToken); // could return null if wrong token is passed in
-      const user = await this.users.findOne({ email }).exec();
+      const user = await this.getUser({ email });
       if (user && user.emailVerified !== true) {
         const { email } = user;
         const token = generateVerifyEmailToken(email);
