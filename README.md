@@ -9,3 +9,7 @@ This repository contains the code to the solution for the backend engineering as
 - Create a ``.env`` file at the root of your project directory
 - Copy the content of ```.env.example``` file to the ``.env`` file
 - Build something amazing
+- 
+
+### GraphQL Postman Documentation
+[Documentation](https://documenter.getpostman.com/view/10967402/UVkpPw9B/)
