@@ -19,3 +19,12 @@ export const mailTemplateConfigOptions = {
   viewPath: path.join(__dirname, "/../templates"),
   extName: ".handlebars",
 }
+
+// Use this configuration object if you  intend to send emails via Mail Gun head on to "https://mailgun.com" to obtain your API KEY and DOMAIN 
+
+export const MailGunConfig = {
+  auth: {
+    api_key: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN,
+  }
+}
