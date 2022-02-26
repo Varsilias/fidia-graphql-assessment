@@ -1,0 +1,58 @@
+{
+  "data": {
+    "getAllUsers": [
+      {
+        "id": "6214a84236ffbdd615e85a94",
+        "firstname": "Daniel",
+        "lastname": "Oguejiofor",
+        "email": "nielnonso@gmail.com",
+        "mobileNo": "+23489900660",
+        "country": "Norway",
+        "emailVerified": "true",
+        "password": "$2b$10$A.H4vxdytNXvRr3DiPwBe.a0KnH.O1dDdb1kChVlx0FBp088ko3ce",
+        "confirmPassword": null,
+        "createdAt": "2022-02-22T09:08:04.109Z",
+        "updatedAt": "2022-02-22T09:08:04.109Z"
+      },
+      {
+        "id": "6218f4766f281d4474302439",
+        "firstname": "Sopuluchukwu",
+        "lastname": "Nnacheta",
+        "email": "nacheetah70@gmail.com",
+        "mobileNo": "+23489900660",
+        "country": "Germany",
+        "emailVerified": "true",
+        "password": "$2b$10$amZCMXL7u71KRiBThgyN5egzEX45MU07PPwuzfQ/pG36OZLeoZaYu",
+        "confirmPassword": null,
+        "createdAt": "2022-02-25T14:45:18.341Z",
+        "updatedAt": "2022-02-25T14:45:18.341Z"
+      },
+      {
+        "id": "6218f5386f281d447430243c",
+        "firstname": "Cordelia",
+        "lastname": "Ukpai",
+        "email": "elemdelia@gmail.com",
+        "mobileNo": "+23489900660",
+        "country": "Russia",
+        "emailVerified": "false",
+        "password": "$2b$10$/2rWR0bYG8ePCjHdN7QxwOH4iDpUrqs96/hFPA6GQi80p47AM9MJe",
+        "confirmPassword": null,
+        "createdAt": "2022-02-25T14:45:18.341Z",
+        "updatedAt": "2022-02-25T14:45:18.341Z"
+      },
+      {
+        "id": "6219f13fc8715a5889f6cb76",
+        "firstname": "Daniel",
+        "lastname": "Okoronkwo",
+        "email": "danielokoronkwo90@gmail.com",
+        "mobileNo": "+2348131866298",
+        "country": "Russia",
+        "emailVerified": "false",
+        "password": "$2b$10$bF9weF/luhaU.HZ6PD0kq.ztABl9dM3.1rGuXzww7iNtyZfi7z4bq",
+        "confirmPassword": null,
+        "createdAt": "2022-02-26T09:15:39.106Z",
+        "updatedAt": "2022-02-26T09:15:39.106Z"
+      }
+    ]
+  }
+}

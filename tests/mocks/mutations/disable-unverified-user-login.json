@@ -1,0 +1,26 @@
+{
+  "errors": [
+    {
+      "message": "User not verified",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "login"
+      ],
+      "extensions": {
+        "code": "INTERNAL_SERVER_ERROR",
+        "exception": {
+          "stacktrace": [
+            "Error: User not verified",
+            "    at AuthService.login (C:\\Users\\Zenarlee\\.p2\\Desktop\\JavaScript Projects\\fidia\\src\\auth\\services\\/auth.service.js:97:13)"
+          ]
+        }
+      }
+    }
+  ],
+  "data": null
+}

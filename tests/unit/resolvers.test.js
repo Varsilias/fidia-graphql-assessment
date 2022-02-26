@@ -1,4 +1,13 @@
 import Resolvers from "../../src/auth/schemas/Resolvers";
+import { testConnection } from "../mocks/database/db";
+
+beforeAll(async () => {
+  await testConnection.connect();
+});
+
+afterAll(async () => {
+  testConnection.disconnect()
+})
 
 describe("Resolvers test suites", () => {
   test("should be be true", async () => {
@@ -17,22 +26,6 @@ describe("Resolvers test suites", () => {
         confirmPassword: "P@ssword123"
       }
     };
-    expect(Resolvers.Mutation.signUp({}, user)).toEqual({
-      data: {
-        signUp: {
-          message: "SignUp Successful, please verify your email address",
-          user: {
-            id: "6219f13fc8715a5889f6cb76",
-            firstname: "Daniel",
-            lastname: "Oguejiofor",
-            email: "nielnonso@gmail.com",
-            mobileNo: "+23489900660",
-            country: "Norway",
-            password: "P@ssword123",
-            confirmPassword: "P@ssword123",
-          }
-        }
-      }
-    });
+    expect(Resolvers.Mutation.signUp(_, user)).toEqual();
   });
 });
