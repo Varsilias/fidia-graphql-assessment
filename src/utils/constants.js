@@ -6,7 +6,7 @@ const html = fs.readFileSync(join(__dirname + '/../../templates/verify.handlebar
 const text = convert(html, {
   wordwrap: 80
 })
-export const SENDER = '"HELLO" daniel@fidia.com'
+export const SENDER = 'hellofromdaniel@fidia.com'
 
 export const SUBJECT = "Welcome, Please Verify Your account"
 
