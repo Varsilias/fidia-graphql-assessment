@@ -131,7 +131,7 @@ class AuthService {
       template: "verify",
       context: {
         name: firstname,
-        url: `https://fidia-graphl.herokuapp.com/verify/${token}`
+        url: `${process.env.CLIENT_URL}/verify/${token}`
       }
     });
   }
